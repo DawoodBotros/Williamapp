@@ -1,91 +1,141 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MaterialApp(
-   debugShowCheckedModeBanner: false,
-      home: HomePage(),
-    ));
-
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  _HomePageState createState() => _HomePageState();
+void main() {
+  runApp(MyHomePage());
 }
 
-/// Branch 2
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+    );
+  }
+}
 
-class _HomePageState extends State<HomePage> {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: 650,
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage(
-            'assets/images/OICP.jpg',
-          ),
-          fit: BoxFit.cover,
-        )),
-        child: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.bottomRight,
-              colors: [Colors.black, Colors.black12],
+      backgroundColor: Colors.grey,
+      appBar: AppBar(
+        backgroundColor: Colors.grey,
+        elevation: 0.0,
+      ),
+      body: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.only(left: 65, top: 230),
+            padding: EdgeInsets.only(left: 6, top: 10),
+            width: 295,
+            height: 400,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black, width: 1),
+              gradient: LinearGradient(
+                colors: [
+                  Colors.white,
+                  Colors.white,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
             ),
-          ),
-          child: Padding(
-            padding: EdgeInsets.all(20),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                const Text(
-                  "William Henry Gates ",
-                  style: TextStyle(
-                    fontSize: 35,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+                ListTile(
+                  leading: CircleAvatar(
+                    radius: 25,
+                    backgroundImage: AssetImage(
+                      'assets/images/download.jpg',
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const SizedBox(
-                  width: 50,
-                ),
-
-                const Text(
-                  'William Henry Gates III, better known as Bill Gates, and Bill is an acronym for William in the United States of America who is an American businessman, programmer and philanthropist. In 1975, he founded Microsoft with Paul Allan, made his own fortune and owned the largest individual share of its shares, estimated at nine percent of the shares offered.Gates was born and raised in Seattle, Washington. He and Allen founded Microsoft in Albuquerque, New Mexico, in 1975.',
-                  style: TextStyle(color: Colors.white, height: 1.4),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Align(
-                  child: Card(
-                    shape: StadiumBorder(),
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                  title: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                          top: 10,
+                        ),
+                      ),
+                      Text(
+                        "Your Name",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text(
-                            "Follow",
-                            style: TextStyle(
-                              fontSize: 20,
+                          Icon(
+                            Icons.arrow_back_ios_rounded,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(
+                              5,
                             ),
                           )
                         ],
                       ),
-                    ),
-                    color: Colors.yellow,
+                    ],
                   ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(10),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Success is Journery not distination",
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/images/OIP.jpg',
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: const [
+                    // Padding(padding: EdgeInsets.only(left: 25),),
+                    Icon(
+                      Icons.library_add,
+                    ),
+                    Text(
+                      "Like",
+                    ),
+                    Icon(
+                      Icons.comment,
+                    ),
+                    Text(
+                      "Comment",
+                    ),
+                    Icon(
+                      Icons.ios_share,
+                    ),
+                    Text(
+                      "Share",
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
-        ),
+        ],
       ),
     );
   }
