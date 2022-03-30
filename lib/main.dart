@@ -12,6 +12,8 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+/// Branch 2
+
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
