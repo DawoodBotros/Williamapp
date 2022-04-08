@@ -8,9 +8,8 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   var formkey = GlobalKey<FormState>();
-  var emailController = TextEditingController();
+  var userController = TextEditingController();
   var passwordController = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -69,15 +68,14 @@ class _LoginState extends State<Login> {
                     child: Column(
                       children: [
                         TextFormField(
-                          controller: emailController,
+                          controller: userController,
                           validator: (value) {
-                            if (value!.isEmpty)
-                              {
-                                return 'يحتوي علي الايميل';
-                              }
+                            if (value!.isEmpty) {
+                              return 'يحتوي علي اسم المستخدم';
+                            }
                             return null;
                           },
-                          onChanged: (String value){
+                          onChanged: (String value) {
                             print(value);
                           },
                           decoration: InputDecoration(
@@ -95,8 +93,7 @@ class _LoginState extends State<Login> {
                         TextFormField(
                           controller: passwordController,
                           validator: (value) {
-                            if (value!.isEmpty)
-                            {
+                            if (value!.isEmpty) {
                               return 'يحتوي علي رموز وحروف وارقام';
                             }
                             return null;
@@ -118,16 +115,15 @@ class _LoginState extends State<Login> {
                         RaisedButton(
                           color: Colors.blue,
                           onPressed: () {
-                           if (formkey.currentState!.validate())
-                             {
-                               print(emailController.text);
-                               print(passwordController.text);
-                             }
+                            if (formkey.currentState!.validate()) {
+                              print(userController.text);
+                              print(passwordController.text);
+                            }
                           },
                           child: Text(
                             'Login',
                             style: TextStyle(
-                            color: Colors.black,
+                              color: Colors.black,
                             ),
                           ),
                         ),
