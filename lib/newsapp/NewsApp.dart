@@ -56,10 +56,16 @@ class NewsApp extends StatelessWidget {
                   },
                   child: Row(
                     children: [
-                      Image(
-                        height: 100,
-                        image: NetworkImage(imagespath[index]),
-                      ),
+                     Container(
+                       decoration: BoxDecoration(
+                         borderRadius: BorderRadius.circular(10.0,),
+                       ),
+                       clipBehavior: Clip.antiAliasWithSaveLayer,
+                       child:Image(
+                         height: 100,
+                         image: NetworkImage(imagespath[index]),
+                       ),
+                     ),
                       const SizedBox(width: 10,),
                       Expanded(
                         child: Text(text[index]),
