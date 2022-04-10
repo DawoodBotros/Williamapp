@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-
-class DetaolsScreen extends StatelessWidget {
+import 'package:flutter/widgets.dart';
+class DetailsScreen extends StatelessWidget {
   final String image;
   final String text;
 
-  DetaolsScreen( this.image, this.text);
+  DetailsScreen( this.image, this.text);
 
   @override
   Widget build(BuildContext context) {

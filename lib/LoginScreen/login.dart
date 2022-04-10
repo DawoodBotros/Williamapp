@@ -71,7 +71,7 @@ class _LoginState extends State<Login> {
                         TextFormField(
                           controller: userController,
                           validator: (value) {
-                            if (value!.isEmpty) {
+                            if (value!.isEmpty || !value.contains('@')) {
                               return 'يحتوي علي اسم المستخدم';
                             }
                             return null;

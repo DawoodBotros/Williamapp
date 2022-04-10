@@ -1,30 +1,52 @@
 import 'package:flutter/material.dart';
-import 'package:shop1/LoginScreen/login.dart';
 import 'package:shop1/newsapp/Screen2.dart';
 
-
+import '../models/news.dart';
 class NewsApp extends StatelessWidget {
 
-  List<String> imagePath= [
-    'https://cdn.cnn.com/cnnnext/dam/assets/220225095200-ukraine-russia-conflict-022522-super-tease.jpg',
-    'https://cdn.cnn.com/cnnnext/dam/assets/220225180808-kyiv-explosion-0226-super-tease.jpg',
-    'https://imagez.tmz.com/image/2b/16by9/2022/02/25/2b31d8b0925b400882e2a4bf7e0c3f23_xl.jpg',
-    'https://cdn.cnn.com/cnnnext/dam/assets/220225095200-ukraine-russia-conflict-022522-super-tease.jpg',
-    'https://cdn.cnn.com/cnnnext/dam/assets/220225180808-kyiv-explosion-0226-super-tease.jpg',
-    'https://imagez.tmz.com/image/2b/16by9/2022/02/25/2b31d8b0925b400882e2a4bf7e0c3f23_xl.jpg',
-    'https://cdn.cnn.com/cnnnext/dam/assets/220225180808-kyiv-explosion-0226-super-tease.jpg',
-    'https://imagez.tmz.com/image/2b/16by9/2022/02/25/2b31d8b0925b400882e2a4bf7e0c3f23_xl.jpg'
+  List<News> news = [
+    new News(
+
+      imagePath:'https://cdn.cnn.com/cnnnext/dam/assets/220225095200-ukraine-russia-conflict-022522-super-tease.jpg',
+      text: 'Fly Your Name for Free Around the Moon on NASA',
+    ),
+    new News(
+      imagePath:
+      'https://cdn.cnn.com/cnnnext/dam/assets/220225180808-kyiv-explosion-0226-super-tease.jpg',
+      text: 'Videos show explosions and gunfire around Ukrainian capital - CNN',
+    ),
+    new News(
+      imagePath:
+      'https://imagez.tmz.com/image/2b/16by9/2022/02/25/2b31d8b0925b400882e2a4bf7e0c3f23_xl.jpg',
+      text: 'Kylie Jenner Back in Action Just 3 Weeks After Giving Birth - TMZ',
+    ),
+    new News(
+      imagePath:
+      'https://cdn.cnn.com/cnnnext/dam/assets/220225095200-ukraine-russia-conflict-022522-super-tease.jpg',
+      text: 'Fly Your Name for Free Around the Moon on NASA',
+    ),
+    new News(
+      imagePath:
+      'https://cdn.cnn.com/cnnnext/dam/assets/220225095200-ukraine-russia-conflict-022522-super-tease.jpg',
+      text: 'Fly Your Name for Free Around the Moon on NASA',
+    ),
+    new News(
+      imagePath:
+      'https://cdn.cnn.com/cnnnext/dam/assets/220225180808-kyiv-explosion-0226-super-tease.jpg',
+      text: 'Videos show explosions and gunfire around Ukrainian capital - CNN',
+    ),
+    new News(
+      imagePath:
+      'https://imagez.tmz.com/image/2b/16by9/2022/02/25/2b31d8b0925b400882e2a4bf7e0c3f23_xl.jpg',
+      text: 'Kylie Jenner Back in Action Just 3 Weeks After Giving Birth - TMZ',
+    ),
+    new News(
+      imagePath:
+      'https://cdn.cnn.com/cnnnext/dam/assets/220225095200-ukraine-russia-conflict-022522-super-tease.jpg',
+      text: 'Fly Your Name for Free Around the Moon on NASA',
+    )
   ];
-  List<String> text =[
-    'Fly Your Name for Free Around the Moon on NASA',
-    'Videos show explosions and gunfire around Ukrainian capital - CNN',
-    'Kylie Jenner Back in Action Just 3 Weeks After Giving Birth - TMZ',
-    'Fly Your Name for Free Around the Moon on NASA',
-    'Videos show explosions and gunfire around Ukrainian capital - CNN',
-    'Kylie Jenner Back in Action Just 3 Weeks After Giving Birth - TMZ',
-    'Videos show explosions and gunfire around Ukrainian capital - CNN',
-    'Kylie Jenner Back in Action Just 3 Weeks After Giving Birth - TMZ'
-  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,18 +63,17 @@ class NewsApp extends StatelessWidget {
         body: Padding(
             padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
             child: ListView.separated(
-                itemCount: imagePath.length,
+                itemCount: news.length,
                 physics: BouncingScrollPhysics(),
                 itemBuilder: (context, index) {
                   return GestureDetector(
                   onTap: ()
                   {
                     Navigator.push(context, MaterialPageRoute(
-                        builder: (context)
-                            {
-                               return DetaolsScreen(imagePath[index],text[index]);
-                            }
-                    ));
+                        builder: (context) {
+                          return DetailsScreen(
+                              news[index].image, news[index].text);
+                        }));
                   },
                   child: Row(
                     children: [
@@ -63,12 +84,12 @@ class NewsApp extends StatelessWidget {
                        clipBehavior: Clip.antiAliasWithSaveLayer,
                        child:Image(
                          height: 100,
-                         image: NetworkImage(imagePath[index]),
+                         image: NetworkImage(news[index].image),
                        ),
                      ),
                       const SizedBox(width: 10,),
                       Expanded(
-                        child: Text(text[index]),
+                        child: Text(news[index].text),
                       ),
                     ],
                   ),
