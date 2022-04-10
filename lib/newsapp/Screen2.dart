@@ -16,7 +16,7 @@ class DetaolsScreen extends StatelessWidget {
             Container(
               height: 400,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15.0,),
+                borderRadius: BorderRadius.circular(20.0,),
                 image: DecorationImage(
                     image: NetworkImage(image),
                     fit: BoxFit.cover,
