@@ -94,7 +94,7 @@ class _LoginState extends State<Login> {
                         TextFormField(
                           controller: passwordController,
                           validator: (value) {
-                            if (value!.isEmpty) {
+                            if (value!.isEmpty || value!.length < 7) {
                               return 'يحتوي علي رموز وحروف وارقام';
                             }
                             return null;
