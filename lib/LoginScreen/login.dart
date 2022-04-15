@@ -6,7 +6,6 @@ class Login extends StatefulWidget {
   @override
   State<Login> createState() => _LoginState();
 }
-
 class _LoginState extends State<Login> {
   var formkey = GlobalKey<FormState>();
   var userController = TextEditingController();
@@ -46,7 +45,7 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Container(
@@ -70,6 +69,7 @@ class _LoginState extends State<Login> {
                       children: [
                         TextFormField(
                           controller: userController,
+                          keyboardType: TextInputType.emailAddress,
                           validator: (value) {
                             if (value!.isEmpty || !value.contains('@')) {
                               return 'يحتوي علي اسم المستخدم';
@@ -79,7 +79,7 @@ class _LoginState extends State<Login> {
                           onChanged: (String value) {
                             print(value);
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             enabledBorder: UnderlineInputBorder(),
                             enabled: true,
                             focusedBorder: UnderlineInputBorder(),
@@ -94,12 +94,12 @@ class _LoginState extends State<Login> {
                         TextFormField(
                           controller: passwordController,
                           validator: (value) {
-                            if (value!.isEmpty || value!.length < 7) {
+                            if (value!.isEmpty || value.length < 7) {
                               return 'يحتوي علي رموز وحروف وارقام';
                             }
                             return null;
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             enabledBorder: UnderlineInputBorder(),
                             enabled: true,
                             focusedBorder: UnderlineInputBorder(),
@@ -121,7 +121,7 @@ class _LoginState extends State<Login> {
                               print(passwordController.text);
                             }
                           },
-                          child: Text(
+                          child: const Text(
                             'Login',
                             style: TextStyle(
                               color: Colors.black,
